@@ -8,17 +8,17 @@ palanca.addEventListener("click", tirarPalanca);
 
 let listaOpciones = [
     {
-        nombre: "LO QUE QUIERAN",
+        nombre: "lemon",
         puntos: 1000,
         imagen: "./imagenes/lemon.png"
     },
     {
-        nombre: "LO QUE QUIERAN",
+        nombre: "cereza",
         puntos: 2000,
         imagen: "./imagenes/cherry.png"
     },
     {
-        nombre: "LO QUE QUIERAN",
+        nombre: "siete",
         puntos: 10000,
         imagen: "./imagenes/siete.png"
     },
