@@ -14,54 +14,99 @@ let listaOpciones = [
         //1
         nombre: "lemon",
         puntos: 1000,
-        imagen: "./imagenes/lemon.png"
+        imagen: "./imagenes/lemon.gif",
+        rangoMax:20,
+        rangoMin:1
     },
     {
         //2
         nombre: "cereza",
         puntos: 2000,
-        imagen: "./imagenes/cherry.png"
+        imagen: "./imagenes/cherry.png",
+        rangoMax:40,
+        rangoMin:21
     },
     {   //3
         nombre: "zafiro",
         puntos: 3000,
-        imagen: "./imagenes/zafiro.png"
+        imagen: "./imagenes/zafiro.png",
+        rangoMax:53,
+        rangoMin:41
     },
     {   //4
         nombre: "trebol",
         puntos: 4000,
-        imagen: "./imagenes/trebol.png"
+        imagen: "./imagenes/trebol.png",
+        rangoMax:65,
+        rangoMin:54
     },
     {   //5
         nombre: "banana",
         puntos: 5000,
-        imagen: "./imagenes/banana.png"
+        imagen: "./imagenes/banana.png",
+        rangoMax:75,
+        rangoMin:66
     },
     {   //6
         nombre: "calaca",
-        puntos: -4500,
-        imagen: "./imagenes/calaca.png"
+        puntos: -10000,
+        imagen: "./imagenes/calaca.png",
+        rangoMax:95,
+        rangoMin:91
     },
-    {   //10
+    {   //8
+        nombre: "herradura",
+        puntos: 8000,
+        imagen: "./imagenes/herradura.png",
+        rangoMax:85,
+        rangoMin:76
+    },
+    {   //9
+        nombre: "pataconejo",
+        puntos: 9000,
+        imagen: "./imagenes/pataconejo.png",
+        rangoMax:90,
+        rangoMin:86
+    },
+    {   //7
         nombre: "siete",
         puntos: 10000,
-        imagen: "./imagenes/siete.png"
+        imagen: "./imagenes/siete.png",
+        rangoMax:100,
+        rangoMin:96
     },
+
 ]
 
 // Cuando se genera un numero random puedo acceder a la posicion del array correspondiente: listaOpciones[numeroRandom]
 function aleatorizador() {
-    // Temporalmente va entre 0 y 2 para test
-    let RNG = Math.floor(Math.random() * 2);
-    return RNG
+    // Te genera un numero entre el 1 y el 100
+    let RNG = Math.floor(Math.random() * 99) + 1;
+
+    listaOpciones.forEach((simbolo) => {
+        console.log(`El numero random es ${RNG}`)
+        console.log(`El numero maximo es ${simbolo.rangoMax}`)
+        console.log(`El numero minimo es ${simbolo.rangoMin}`)
+        console.log(`El simbolo que esta siendo revisado es ${simbolo}`)
+        if (RNG >= simbolo.rangoMin && RNG <= simbolo.rangoMax){
+            console.log("true")
+            return simbolo
+        }
+        return false
+    });
+    
 }
 
 function tirarPalanca() {
-    A = listaOpciones[aleatorizador()]
+    A = aleatorizador();
 
-    B = listaOpciones[aleatorizador()]
+    B = aleatorizador();
 
-    C = listaOpciones[aleatorizador()]
+    C = aleatorizador();
+
+    console.log(A)
+    console.log(B)
+    console.log(C)
 
     resultado.innerHTML = `${A.puntos} | ${B.puntos} | ${C.puntos}`
 
@@ -76,8 +121,8 @@ function calcularPuntaje(A, B, C) {
     let texto = "";
     puntaje = 0;
 
-    if (A == B & B == C) {
-        puntaje = 1000000;
+    if (A.nombre == "siete" && B.nombre == "siete" && C.nombre == "siete") {
+        puntaje = 3000000000;
         ganancia = ganancia + puntaje;
         divPuntaje.innerHTML = `Loteria! Sumaste: ${puntaje}`
         divPlataTotal.innerHTML = `tu total es: ${ganancia}`
@@ -89,7 +134,9 @@ function calcularPuntaje(A, B, C) {
 
     }
 
-    
+    if (puntaje == 3000000000){
+        alert("Ganaste!")
+    }
     // De aca para arriba es lo basico, El RNG del 1 al 9
     //document.getElementById("ganancia").innerHTML = texto;
     
