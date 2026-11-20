@@ -83,17 +83,18 @@ function aleatorizador() {
     // Te genera un numero entre el 1 y el 100
     let RNG = Math.floor(Math.random() * 99) + 1;
 
-    listaOpciones.forEach((simbolo) => {
+    for(let i = 0; i <= (listaOpciones.length - 1); i++) {
         console.log(`El numero random es ${RNG}`)
-        console.log(`El numero maximo es ${simbolo.rangoMax}`)
-        console.log(`El numero minimo es ${simbolo.rangoMin}`)
-        console.log(`El simbolo que esta siendo revisado es ${simbolo}`)
-        if (RNG >= simbolo.rangoMin && RNG <= simbolo.rangoMax){
-            console.log("true")
-            return simbolo
+        console.log(`El numero maximo es ${listaOpciones[i].rangoMax}`)
+        console.log(`El numero minimo es ${listaOpciones[i].rangoMin}`)
+        console.log(`El simbolo que esta siendo revisado es ${listaOpciones[i].nombre}`)
+
+        if (RNG >= listaOpciones[i].rangoMin && RNG <= listaOpciones[i].rangoMax){
+            console.log("true") 
+            return listaOpciones[i]
         }
         return false
-    });
+    };
     
 }
 
