@@ -1,5 +1,8 @@
 let palanca = document.getElementById("boton_palanca");
 let resultado = document.getElementById("resultado");
+let resultadoA = document.getElementById("resultadoA");
+let resultadoB = document.getElementById("resultadoB");
+let resultadoC = document.getElementById("resultadoC");
 let divPlataTotal = document.getElementById("platatotal");
 let divPuntaje = document.getElementById("puntaje");
 let puntaje = 0;
@@ -36,28 +39,28 @@ let listaOpciones = [
     {   //4
         nombre: "trebol",
         puntos: 4000,
-        imagen: "./imagenes/trebol.png",
+        imagen: "./imagenes/trebol.gif",
         rangoMax:65,
         rangoMin:54
     },
     {   //5
         nombre: "banana",
         puntos: 5000,
-        imagen: "./imagenes/banana.png",
+        imagen: "./imagenes/banana.gif",
         rangoMax:75,
         rangoMin:66
     },
     {   //6
         nombre: "calaca",
         puntos: -10000,
-        imagen: "./imagenes/calaca.png",
+        imagen: "./imagenes/Calaca.gif",
         rangoMax:95,
         rangoMin:91
     },
     {   //8
         nombre: "herradura",
         puntos: 8000,
-        imagen: "./imagenes/herradura.png",
+        imagen: "./imagenes/herradura.jpg",
         rangoMax:85,
         rangoMin:76
     },
@@ -81,9 +84,9 @@ let listaOpciones = [
 // Cuando se genera un numero random puedo acceder a la posicion del array correspondiente: listaOpciones[numeroRandom]
 function aleatorizador() {
     // Te genera un numero entre el 1 y el 100
-    let RNG = Math.floor(Math.random() * 99) + 1;
+    let RNG = Math.floor(Math.random() * 100) + 1;
 
-    for(let i = 0; i <= (listaOpciones.length - 1); i++) {
+    for(let i = 0; i <= (listaOpciones.length); i++) {
         console.log(`El numero random es ${RNG}`)
         console.log(`El numero maximo es ${listaOpciones[i].rangoMax}`)
         console.log(`El numero minimo es ${listaOpciones[i].rangoMin}`)
@@ -93,8 +96,8 @@ function aleatorizador() {
             console.log("true") 
             return listaOpciones[i]
         }
-        return false
     };
+    return false
     
 }
 
@@ -108,6 +111,10 @@ function tirarPalanca() {
     console.log(A)
     console.log(B)
     console.log(C)
+
+    resultadoA.innerHTML = `<img src=${A.imagen} class="imagenRuleta">`
+    resultadoB.innerHTML = `<img src=${B.imagen} class="imagenRuleta">`
+    resultadoC.innerHTML = `<img src=${C.imagen} class="imagenRuleta">`
 
     resultado.innerHTML = `${A.puntos} | ${B.puntos} | ${C.puntos}`
 
