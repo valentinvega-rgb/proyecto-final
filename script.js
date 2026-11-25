@@ -5,16 +5,20 @@ let resultadoB = document.getElementById("resultadoB");
 let resultadoC = document.getElementById("resultadoC");
 let divPlataTotal = document.getElementById("platatotal");
 let divPuntaje = document.getElementById("puntaje");
+let mejora1 = document.getElementById("boton_MejoraPuntos");
+let mejora2 = document.getElementById("boton_MejoraProbabilidad");
 let puntaje = 0;
 let ganancia = 0;
 let A;
 let B;
 let C;
 palanca.addEventListener("click", tirarPalanca);
+mejora1.addEventListener("click", mejoraDePuntos);
+//mejora2.addEventListener("click", mejoraDeProbabilidad);
 
 let listaOpciones = [
     {
-        //1
+        //0
         nombre: "lemon",
         puntos: 1000,
         imagen: "./imagenes/lemon.gif",
@@ -22,64 +26,66 @@ let listaOpciones = [
         rangoMin:1
     },
     {
-        //2
+        //1
         nombre: "cereza",
         puntos: 2000,
         imagen: "./imagenes/cherry.png",
         rangoMax:40,
         rangoMin:21
     },
-    {   //3
+    {   //2
         nombre: "zafiro",
         puntos: 3000,
-        imagen: "./imagenes/zafiro.png",
+        imagen: "./imagenes/zafiro.gif",
         rangoMax:53,
         rangoMin:41
     },
-    {   //4
+    {   //3
         nombre: "trebol",
         puntos: 4000,
         imagen: "./imagenes/trebol.gif",
         rangoMax:65,
         rangoMin:54
     },
-    {   //5
+    {   //4
         nombre: "banana",
         puntos: 5000,
         imagen: "./imagenes/banana.gif",
         rangoMax:75,
         rangoMin:66
     },
-    {   //6
+    {   //5
         nombre: "calaca",
         puntos: -10000,
         imagen: "./imagenes/Calaca.gif",
         rangoMax:95,
         rangoMin:91
     },
-    {   //8
+    {   //6
         nombre: "herradura",
         puntos: 8000,
         imagen: "./imagenes/herradura.jpg",
         rangoMax:85,
         rangoMin:76
     },
-    {   //9
+    {   //7
         nombre: "pataconejo",
         puntos: 9000,
-        imagen: "./imagenes/pataconejo.png",
+        imagen: "./imagenes/patadeconejo.gif",
         rangoMax:90,
         rangoMin:86
     },
-    {   //7
+    {   //8
         nombre: "siete",
         puntos: 10000,
-        imagen: "./imagenes/siete.png",
+        imagen: "./imagenes/siete.gif",
         rangoMax:100,
         rangoMin:96
     },
 
 ]
+
+
 
 // Cuando se genera un numero random puedo acceder a la posicion del array correspondiente: listaOpciones[numeroRandom]
 function aleatorizador() {
@@ -151,3 +157,64 @@ function calcularPuntaje(A, B, C) {
 
 }    
 //
+
+function mejoraDePuntos() {
+    if (ganancia >= 500000){
+    listaOpciones[0].puntos = 4000
+    listaOpciones[1].puntos = 5000
+    listaOpciones[2].puntos = 7000
+    listaOpciones[3].puntos = 8000
+    listaOpciones[4].puntos = 10000
+    listaOpciones[5].puntos = -20000
+    listaOpciones[6].puntos = 15000
+    listaOpciones[7].puntos = 20000
+    listaOpciones[8].puntos = 25000
+    }    else{
+        alert("Insuficiente dinero")
+    }
+}
+
+function mejoraDeProbabilidad() {
+    if (ganancia >= 10000000){
+    listaOpciones[0]
+    .rangoMin = 1
+    .rangoMax = 16
+
+    listaOpciones[1]
+    .rangoMin = 17
+    .rangoMax = 32
+
+    listaOpciones[2]
+    .rangoMin = 33
+    .rangoMax = 42
+
+    listaOpciones[3]
+    .rangoMin = 43
+    .rangoMax = 52
+
+    listaOpciones[4]
+    .rangoMin = 53
+    .rangoMax = 62
+
+    listaOpciones[5]
+    .rangoMin = 63
+    .rangoMax = 74
+
+    listaOpciones[6]
+    .rangoMin = 75
+    .rangoMax = 82
+
+    listaOpciones[7]
+    .rangoMin = 83
+    .rangoMax = 90
+
+    listaOpciones[8]
+    .rangoMin = 91
+    .ragoMax = 100
+    
+    console.log ("probabilidad mejorada");
+
+    }    else{
+        alert("Insuficiente dinero")
+    }
+}
