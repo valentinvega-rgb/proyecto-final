@@ -17,3 +17,29 @@
     width: 40%;
     margin: auto;
 }
+
+h1 {
+  display: flex;
+  justify-content: center;
+}
+
+p{
+  display: flex;
+  justify-content: center;
+}
+
+#platatotal{
+  display: flex;
+  justify-content: center;
+}
+
+#puntaje{
+  display: flex;
+  justify-content: center;
+  margin:auto;
+}
+
+#resultado{
+display: flex;
+  justify-content: center;
+  margin:auto;}
